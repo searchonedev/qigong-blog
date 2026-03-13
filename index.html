@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qi Gong Masters | Ba Duan Jin · Yi Jin Jing · Luohan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --text-primary: #f5f5f0;
+            --text-secondary: #a0a0a0;
+            --accent: #c9a959;
+            --accent-dim: #8a7340;
+            --border: #2a2a2a;
+            --gradient-gold: linear-gradient(135deg, #c9a959 0%, #e8d5a3 50%, #c9a959 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-dim);
+            border-radius: 4px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, transparent 100%);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(201, 169, 89, 0.08) 0%, transparent 50%),
+                var(--bg-primary);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        .btn-filled {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        .btn-filled:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            transition: all 0.4s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .card:hover {
+            border-color: var(--accent-dim);
+            transform: translateY(-4px);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+        
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .card-meta {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Exercise Detail */
+        .exercise-section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .exercise-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .exercise-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .exercise-header .chinese {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .exercise-content {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .content-block {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .content-block h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .content-block ul {
+            list-style: none;
+        }
+        
+        .content-block li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+        
+        .content-block li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--accent-dim);
+            font-size: 0.6rem;
+            top: 0.9rem;
+        }
+        
+        .dos-donts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .dos, .donts {
+            padding: 2rem;
+        }
+        
+        .dos {
+            background: rgba(201, 169, 89, 0.05);
+            border: 1px solid rgba(201, 169, 89, 0.2);
+        }
+        
+        .donts {
+            background: rgba(180, 80, 80, 0.05);
+            border: 1px solid rgba(180, 80, 80, 0.2);
+        }
+        
+        .dos h4, .donts h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .dos h4 { color: #c9a959; }
+        .donts h4 { color: #c95959; }
+        
+        /* Table */
+        .table-wrap {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+        td {
+            color: var(--text-secondary);
+        }
+        
+        tr:hover td {
+            background: var(--bg-secondary);
+        }
+        
+        /* Comparison */
+        .comparison-table {
+            margin-top: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        
+        footer a {
+            color: var(--accent);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">氣</a>
+            <ul class="nav-links">
+                <li><a href="#ba-duan-jin">Ba Duan Jin</a></li>
+                <li><a href="#yi-jin-jing">Yi Jin Jing</a></li>
+                <li><a href="#luohan">Luohan</a></li>
+                <li><a href="#comparison">Comparison</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>The Art of Qi Gong</h1>
+                <p class="hero-subtitle">Three classical systems for health, vitality, and inner transformation. Discover the ancient Chinese practices that have guided practitioners for centuries.</p>
+                <div class="hero-cta">
+                    <a href="#ba-duan-jin" class="btn btn-filled">Begin Practice</a>
+                    <a href="#comparison" class="btn">Compare Systems</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="overview">
+            <div class="section-header">
+                <h2>Three Treasures</h2>
+                <p>Each system offers unique benefits. Ba Duan Jin for balance, Yi Jin Jing for strength, Luohan for calm.</p>
+            </div>
+            
+            <div class="cards-grid">
+                <a href="#ba-duan-jin" class="card">
+                    <span class="card-icon">☯️</span>
+                    <h3>Ba Duan Jin</h3>
+                    <p>Eight Pieces of Silk — A gentle practice for overall health, flexibility, and energy circulation.</p>
+                    <div class="card-meta">
+                        <span>🕐 15-20 min</span>
+                        <span>⭐ Easy</span>
+                    </div>
+                </a>
+                
+                <a href="#yi-jin-jing" class="card">
+                    <span class="card-icon">⚔️</span>
+                    <h3>Yi Jin Jing</h3>
+                    <p>Muscle/Tendon Changing Classic — A stronger practice that transforms the body and builds internal power.</p>
+                    <div class="card-meta">
+                        <span>🕐 20-30 min</span>
+                        <span>⭐⭐ Medium</span>
+                    </div>
+                </a>
+                
+                <a href="#luohan" class="card">
+                    <span class="card-icon">🧘</span>
+                    <h3>Luohan Qigong</h3>
+                    <p>Arhat Practice — A gentle, meditative system for calming the mind and balancing the nervous system.</p>
+                    <div class="card-meta">
+                        <span>🕐 15-30 min</span>
+                        <span>⭐ Easy</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+        <section id="ba-duan-jin">
+            <div class="section-header">
+                <h2>Ba Duan Jin</h2>
+                <p>八段锦 — Eight Pieces of Silk. A complete health practice originating from the Song Dynasty.</p>
+            </div>
+            
+            <div class="exercise-section">
+                <div class="exercise-header">
+                    <p class="chinese">八段锦</p>
+                    <h2>Eight Pieces of Silk</h2>
+                    <p>A gentle, flowing practice for health and longevity</p>
+                </div>
+                
+                <div class="exercise-content">
+                    <div class="content-block">
+                        <h3>Theory</h3>
+                        <p>Ba Duan Jin combines slow movements with deep breathing and mental focus to balance Yin and Yang and circulate Qi through the meridians. It works on the principle that proper energy flow creates health and vitality.</p>
+                    </div>
+                    
+                    <div class="content-block">
+                        <h3>The Eight Movements</h3>
+                        <ul>
+                            <li><strong>Hands Hold Sky</strong> — Regulates the Triple Burner (三焦)</li>
+                            <li><strong>Draw Bow Like Shooting Eagle</strong> — Opens the Lung meridian</li>
+                            <li><strong>Single Arm Lift</strong> — Balances Spleen and Stomach</li>
+                            <li><strong>Look Back</strong> — Relieves the Five Exhaustions</li>
+                            <li><strong>Shake Head and Tail</strong> — Calms excess Heart Fire</li>
+                            <li><strong>Grab Feet</strong> — Strengthens Kidneys and lower back</li>
+                            <li><strong>Clench Fist with Angry Eyes</strong> — Builds Yang energy and willpower</li>
+                            <li><strong>Heel Drops</strong> — Eliminates hundreds of ailments</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dos-donts">
+                        <div class="dos">
+                            <h4>✓ Do</h4>
+                            <ul>
+                                <li>Practice in the morning, empty stomach</li>
+                                <li>Wear loose, comfortable clothing</li>
+                                <li>Breathe naturally into the dantian</li>
+                                <li>Move slowly and smoothly</li>
+                                <li>Focus on the feeling of Qi</li>
+                            </ul>
+                        </div>
+                        <div class="donts">
+                            <h4>✗ Don't</h4>
+                            <ul>
+                                <li>Don't practice in direct sunlight</li>
+                                <li>Don't talk while practicing</li>
+                                <li>Don't force your breathing</li>
+                                <li>Don't practice when sick</li>
+                                <li>Don't over-practice (once daily is enough)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="yi-jin-jing">
+            <div class="section-header">
+                <h2>Yi Jin Jing</h2>
+                <p>易筋经 — Muscle/Tendon Changing Classic. The martial foundation of Shaolin.</p>
+            </div>
+            
+            <div class="exercise-section">
+                <div class="exercise-header">
+                    <p class="chinese">易筋经</p>
+                    <h2>Muscle/Tendon Changing Classic</h2>
+                    <p>Strengthen tendons and build internal power</p>
+                </div>
+                
+                <div class="exercise-content">
+                    <div class="content-block">
+                        <h3>Origin & Theory</h3>
+                        <p>Attributed to Bodhidharma, the founder of Shaolin martial arts, Yi Jin Jing focuses on transforming the tendons and building internal strength. Unlike external martial training, this practice develops power from within.</p>
+                    </div>
+                    
+                    <div class="content-block">
+                        <h3>The 12 Exercises</h3>
+                        <ul>
+                            <li><strong>Raise Hands to Heaven</strong> — Full body stretch, spinal elongation</li>
+                            <li><strong>Wei Tuo Presents Staff I</strong> — Focus and concentration</li>
+                            <li><strong>Wei Tuo Presents Staff II</strong> — Arm strength building</li>
+                            <li><strong>Pluck Stars, Change Dipper</strong> — Spinal rotation</li>
+                            <li><strong>Pull Nine Oxen by Tail</strong> — Arm and back strength</li>
+                            <li><strong>Nine Ghosts Pull Sabre</strong> — Back flexibility</li>
+                            <li><strong>Three Plates Fall</strong> — Leg strength and grounding</li>
+                            <li><strong>Green Dragon Explores Claw</strong> — Internal organ massage</li>
+                            <li><strong>Tiger Pounces on Food</strong> — Full body stretch</li>
+                            <li><strong>Bow Head, Beat Drum</strong> — Spine flexibility</li>
+                            <li><strong>Shake Head, Sway Tail</strong> — Hip mobility</li>
+                            <li><strong>Drop Tail, Raise Head</strong> — Lateral stretch</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dos-donts">
+                        <div class="dos">
+                            <h4>✓ Do</h4>
+                            <ul>
+                                <li>Warm up before starting</li>
+                                <li>Hold each pose 3-5 breaths</li>
+                                <li>Focus on tendons, not just muscles</li>
+                                <li>Move slowly between poses</li>
+                                <li>End with standing meditation</li>
+                            </ul>
+                        </div>
+                        <div class="donts">
+                            <h4>✗ Don't</h4>
+                            <ul>
+                                <li>Don't bounce or stretch violently</li>
+                                <li>Don't strain beyond comfort</li>
+                                <li>Don't skip warm-up</li>
+                                <li>Don't hold breath</li>
+                                <li>Don't practice on full stomach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="luohan">
+            <div class="section-header">
+                <h2>Luohan Qigong</h2>
+                <p>罗汉功 — Arhat Practice. The gentle path to inner peace.</p>
+            </div>
+            
+            <div class="exercise-section">
+                <div class="exercise-header">
+                    <p class="chinese">罗汉功</p>
+                    <h2>Arhat Practice</h2>
+                    <p>Calm the mind and balance the nervous system</p>
+                </div>
+                
+                <div class="exercise-content">
+                    <div class="content-block">
+                        <h3>Philosophy</h3>
+                        <p>Named after the Arhats (enlightened disciples in Buddhism), Luohan Qigong is the gentlest of the three systems. It emphasizes internal feeling over external form, making it perfect for those seeking relaxation and mental clarity.</p>
+                    </div>
+                    
+                    <div class="content-block">
+                        <h3>Key Principles</h3>
+                        <ul>
+                            <li><strong>Embrace Tai Chi</strong> — Flowing arm circles</li>
+                            <li><strong>Push Window, Moon</strong> — Lateral extensions</li>
+                            <li><strong>Phoenix Dances</strong> — Wing-like arm waves</li>
+                            <li><strong>Follow Wind, Pull Flag</strong> — Twisting motions</li>
+                            <li><strong>Quiet Cultivation</strong> — Standing meditation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dos-donts">
+                        <div class="dos">
+                            <h4>✓ Do</h4>
+                            <ul>
+                                <li>Move slowly and gently</li>
+                                <li>Focus on internal feeling</li>
+                                <li>Relax completely</li>
+                                <li>Breathe into the dantian</li>
+                                <li>End with stillness</li>
+                            </ul>
+                        </div>
+                        <div class="donts">
+                            <h4>✗ Don't</h4>
+                            <ul>
+                                <li>Don't force movements</li>
+                                <li>Don't focus on appearance over feeling</li>
+                                <li>Don't tense up</li>
+                                <li>Don't use shallow breathing</li>
+                                <li>Don't skip the ending stillness</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="comparison">
+            <div class="section-header">
+                <h2>Compare Systems</h2>
+                <p>Find the right practice for your goals</p>
+            </div>
+            
+            <div class="table-wrap comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Ba Duan Jin</th>
+                            <th>Yi Jin Jing</th>
+                            <th>Luohan Qigong</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Origin</td>
+                            <td>Song Dynasty</td>
+                            <td>Tang Dynasty (Bodhidharma)</td>
+                            <td>Buddhist tradition</td>
+                        </tr>
+                        <tr>
+                            <td>Style</td>
+                            <td>Moderate</td>
+                            <td>Strong / Martial</td>
+                            <td>Gentle / Meditative</td>
+                        </tr>
+                        <tr>
+                            <td>Primary Focus</td>
+                            <td>Overall health</td>
+                            <td>Tendons & strength</td>
+                            <td>Mind & calm</td>
+                        </tr>
+                        <tr>
+                            <td>Difficulty</td>
+                            <td>Easy</td>
+                            <td>Medium</td>
+                            <td>Easy</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>15-20 min</td>
+                            <td>20-30 min</td>
+                            <td>15-30 min</td>
+                        </tr>
+                        <tr>
+                            <td>Energy</td>
+                            <td>Balanced</td>
+                            <td>Yang-heavy</td>
+                            <td>Yin-heavy</td>
+                        </tr>
+                        <tr>
+                            <td>Best For</td>
+                            <td>Beginners, daily health</td>
+                            <td>Martial arts base, strength</td>
+                            <td>Relaxation, stress relief</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Qi Gong Masters — A modern guide to classical practices</p>
+        <p style="margin-top: 1rem;">愿您健康长寿 · May you have health and longevity</p>
+    </footer>
+    
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Fade in elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.card, .exercise-section, .content-block').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
