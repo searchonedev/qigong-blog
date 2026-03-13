@@ -3,71 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qi Gong Practice Guide</title>
+    <title>Qi Gong Practice Guide — Detailed</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #0a0a0a; --bg2: #141414; --bg3: #1a1a1a; --text: #f5f5f0; --text2: #a0a0a0; --accent: #c9a959; --border: #2a2a2a; }
+        :root { --bg: #0a0a0a; --bg2: #141414; --bg3: #1a1a1a; --text: #f5f5f0; --text2: #a0a0a0; --accent: #c9a959; --accent-dim: #7a6530; --border: #2a2a2a; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; }
         h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
-        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 2rem; background: linear-gradient(180deg, var(--bg) 0%, transparent 100%); }
-        nav { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent); text-decoration: none; }
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-        .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; }
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, transparent 100%); }
+        nav { max-width: 950px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--accent); text-decoration: none; }
+        .nav-links { display: flex; gap: 1.25rem; list-style: none; }
+        .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.85rem; }
         .nav-links a:hover { color: var(--accent); }
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6rem 2rem; background: radial-gradient(ellipse at 50% 0%, rgba(201,169,89,0.08) 0%, transparent 50%), var(--bg); }
-        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.1; margin-bottom: 1rem; background: linear-gradient(135deg, #c9a959 0%, #e8d5a3 50%, #c9a959 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: var(--text2); font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; }
-        .btn { padding: 0.85rem 1.75rem; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; display: inline-block; }
+        .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 5rem 1.5rem; background: radial-gradient(ellipse at 50% 0%, rgba(201,169,89,0.1) 0%, transparent 60%), var(--bg); }
+        .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.15; margin-bottom: 0.75rem; background: linear-gradient(135deg, #c9a959 0%, #e8d5a3 50%, #c9a959 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text2); font-size: 1rem; margin-bottom: 1.75rem; max-width: 480px; }
+        .btn { padding: 0.75rem 1.5rem; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; display: inline-block; }
         .btn:hover { background: transparent; color: var(--accent); }
-        section { padding: 4rem 1.5rem; max-width: 850px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 2.5rem; }
-        .section-header h2 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .section-header p { color: var(--text2); }
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
-        .card { background: var(--bg3); border: 1px solid var(--border); padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.3s; }
-        .card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .card-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
-        .card h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
-        .card p { color: var(--text2); font-size: 0.9rem; }
-        .card-meta { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text2); display: flex; gap: 1rem; }
-        .principles { background: var(--bg3); border: 1px solid var(--border); padding: 1.75rem; margin-bottom: 2rem; }
-        .principles h3 { color: var(--accent); margin-bottom: 1rem; }
-        .principle { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+        section { padding: 3.5rem 1.25rem; max-width: 800px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 2rem; }
+        .section-header h2 { font-size: 1.8rem; margin-bottom: 0.4rem; }
+        .section-header p { color: var(--text2); font-size: 0.95rem; }
+        .section-header .chinese { color: var(--accent); font-size: 1.1rem; display: block; margin-bottom: 0.5rem; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+        .card { background: var(--bg3); border: 1px solid var(--border); padding: 1.25rem; text-decoration: none; color: inherit; transition: all 0.3s; }
+        .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .card-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 0.3rem; }
+        .card p { color: var(--text2); font-size: 0.85rem; }
+        .card-meta { margin-top: 0.75rem; padding-top: 0.6rem; border-top: 1px solid var(--border); font-size: 0.7rem; color: var(--text2); display: flex; gap: 0.75rem; }
+        .principles { background: var(--bg3); border: 1px solid var(--border); padding: 1.5rem; margin-bottom: 1.75rem; }
+        .principles h3 { color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem; }
+        .principle { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
         .principle:last-child { border: none; }
-        .principle h4 { font-size: 1rem; margin-bottom: 0.3rem; }
-        .principle p { color: var(--text2); font-size: 0.9rem; }
-        .movement { background: var(--bg2); border: 1px solid var(--border); margin-bottom: 0.75rem; overflow: hidden; }
-        .movement-header { padding: 1rem 1.25rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .principle h4 { font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .principle p { color: var(--text2); font-size: 0.85rem; }
+        .movement { background: var(--bg2); border: 1px solid var(--border); margin-bottom: 0.6rem; overflow: hidden; }
+        .movement-header { padding: 0.9rem 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .movement-header:hover { background: var(--bg3); }
-        .movement-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--accent); color: var(--bg); border-radius: 50%; font-weight: 600; margin-right: 0.6rem; font-size: 0.8rem; }
-        .movement-title { flex: 1; }
-        .movement-title h3 { font-size: 1rem; }
-        .movement-title span { font-size: 0.75rem; color: var(--accent); }
-        .movement-toggle { color: var(--text2); font-size: 1.2rem; }
+        .movement-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; background: var(--accent); color: var(--bg); border-radius: 50%; font-weight: 600; margin-right: 0.5rem; font-size: 0.75rem; }
+        .movement-title { flex: 1; display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+        .movement-title h3 { font-size: 0.95rem; }
+        .movement-title span { font-size: 0.7rem; color: var(--accent); }
+        .movement-toggle { color: var(--text2); font-size: 1.1rem; transition: transform 0.3s; }
         .movement.open .movement-toggle { transform: rotate(45deg); }
-        .movement-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
-        .movement.open .movement-content { max-height: 1200px; }
-        .movement-body { padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--border); }
-        .movement-body p { color: var(--text2); font-size: 0.9rem; margin-bottom: 0.75rem; }
-        .breathing { background: rgba(201,169,89,0.08); border-left: 3px solid var(--accent); padding: 0.75rem; margin: 0.6rem 0; }
-        .breathing h4 { color: var(--accent); font-size: 0.85rem; margin-bottom: 0.3rem; }
-        .breathing p { color: var(--text2); font-size: 0.8rem; margin: 0; }
-        .dd { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-top: 0.75rem; }
-        .do, .dont { padding: 0.75rem; }
+        .movement-content { max-height: 0; overflow: hidden; transition: max-height 0.4s; }
+        .movement.open .movement-content { max-height: 2500px; }
+        .movement-body { padding: 0 1.1rem 1.1rem; border-top: 1px solid var(--border); }
+        .movement-body p { color: var(--text2); font-size: 0.85rem; margin-bottom: 0.6rem; }
+        .movement-body p strong { color: var(--text); }
+        .section-title { color: var(--accent); font-size: 0.8rem; margin: 1rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .breathing, .benefits, .steps, .tips { background: rgba(201,169,89,0.06); border-left: 3px solid var(--accent); padding: 0.7rem; margin: 0.5rem 0; }
+        .breathing h4, .benefits h4, .steps h4, .tips h4 { color: var(--accent); font-size: 0.8rem; margin-bottom: 0.4rem; }
+        .breathing p, .benefits p, .steps p, .tips p { color: var(--text2); font-size: 0.8rem; margin: 0; }
+        .steps ol { color: var(--text2); font-size: 0.8rem; margin: 0; padding-left: 1.1rem; }
+        .steps li { margin-bottom: 0.3rem; }
+        .dd { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.6rem; margin-top: 0.6rem; }
+        .do, .dont { padding: 0.6rem; }
         .do { background: rgba(201,169,89,0.05); border: 1px solid rgba(201,169,89,0.2); }
         .dont { background: rgba(180,80,80,0.05); border: 1px solid rgba(180,80,80,0.2); }
-        .do h4 { color: #c9a959; font-size: 0.85rem; }
-        .dont h4 { color: #c95959; font-size: 0.85rem; }
+        .do h4 { color: #c9a959; font-size: 0.8rem; }
+        .dont h4 { color: #c95959; font-size: 0.8rem; }
         .do ul, .dont ul { list-style: none; font-size: 0.75rem; color: var(--text2); }
-        .do li, .dont li { padding: 0.25rem 0; padding-left: 0.8rem; position: relative; }
-        .do li::before { content: '✓'; position: absolute; left: 0; color: #c9a959; }
-        .dont li::before { content: '✗'; position: absolute; left: 0; color: #c95959; }
-        footer { padding: 2.5rem; text-align: center; border-top: 1px solid var(--border); margin-top: 3rem; }
-        footer p { color: var(--text2); font-size: 0.8rem; }
-        @media (max-width: 600px) { .nav-links { display: none; } .hero h1 { font-size: 2rem; } }
+        .do li, .dont li { padding: 0.2rem 0; padding-left: 0.7rem; position: relative; }
+        .do li::before { content: '✓'; position: absolute; left: 0; color: #c9a959; font-size: 0.65rem; }
+        .dont li::before { content: '✗'; position: absolute; left: 0; color: #c95959; font-size: 0.65rem; }
+        footer { padding: 2rem; text-align: center; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+        footer p { color: var(--text2); font-size: 0.75rem; }
+        @media (max-width: 600px) { .nav-links { display: none; } .hero h1 { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
@@ -75,11 +80,11 @@
 <main>
 <section class="hero">
     <h1>The Art of Qi Gong</h1>
-    <p>A practical guide to three classical systems. Movements, breathing, and why each practice works.</p>
-    <a href="#ba" class="btn">Start Practice</a>
+    <p>A detailed practice guide with breathing, steps, benefits, and technique for each movement.</p>
+    <a href="#ba" class="btn">Start Learning</a>
 </section>
 <section id="overview">
-    <div class="section-header"><h2>Three Systems</h2><p>Each offers unique benefits.</p></div>
+    <div class="section-header"><h2>Three Systems</h2><p>Find what works for you.</p></div>
     <div class="cards">
         <a href="#ba" class="card"><span class="card-icon">☯️</span><h3>Ba Duan Jin</h3><p>Gentle flowing movements for overall health.</p><div class="card-meta"><span>🕐 15-20 min</span><span>⭐ Easy</span></div></a>
         <a href="#yi" class="card"><span class="card-icon">⚔️</span><h3>Yi Jin Jing</h3><p>Stronger practice that builds internal power.</p><div class="card-meta"><span>🕐 20-30 min</span><span>⭐⭐ Medium</span></div></a>
@@ -87,171 +92,254 @@
     </div>
 </section>
 <section id="ba">
-    <div class="section-header"><h2>Ba Duan Jin</h2><p>八段锦 — Eight flowing movements that work the entire body.</p></div>
+    <div class="section-header"><h2>Ba Duan Jin</h2><span class="chinese">八段锦 — Eight Pieces of Silk</span><p>Eight flowing movements that work the entire body.</p></div>
     <div class="principles"><h3>Why It Works</h3>
         <div class="principle"><h4>Meridian Activation</h4><p>Each movement targets specific energy channels. When Qi flows freely, organ function improves.</p></div>
-        <div class="principle"><h4>Gentle Stretching</h4><p>Stretching combined with breath increases flexibility without strain.</p></div>
-        <div class="principle"><h4>Mind-Body Connection</h4><p>Focusing attention creates presence and reduces stress.</p></div>
+        <div class="principle"><h4>Gentle Stretching</h4><p>Combining stretching with breath increases flexibility without strain. Stimulates connective tissues.</p></div>
+        <div class="principle"><h4>Mind-Body Connection</h4><p>Focusing attention creates presence and reduces stress. Calms the nervous system.</p></div>
     </div>
+    <!-- Movement 1 -->
     <div class="movement open"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">1</span><h3>Two Hands Hold Up the Heavens</h3><span>双手托天理三焦</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Interlace fingers, palms up. Push overhead, turn palms to sky. Rise onto toes. Hold 3-5 breaths. Lower.</p>
-        <p><strong>Why:</strong> Full-body stretch opens the Triple Burner (energy distribution). Elongates spine, stretches front body.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale as arms rise. Hold at top. Exhale lowering.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Arms straight not locked</li><li>Stretch through fingers</li><li>Relax shoulders</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Shrug shoulders</li><li>Hold breath</li><li>Lean back</li></ul></div></div>
+        <p><strong>What to do:</strong> Interlace fingers with palms facing up. Push hands straight up overhead, turning palms to face the sky. Rise onto the balls of your feet. Hold for 3-5 breaths. Lower hands slowly back down.</p>
+        <p><strong>Why it works:</strong> This full-body stretch opens the Triple Burner (Sanjiao)—the energy channel that governs how your body distributes and processes energy. The overhead reach elongates the entire spine, stretches the shoulders, and opens the front of the body. Rising onto toes engages the yang energy and completes the stretch.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand with feet shoulder-width, arms at sides</li><li>Interlace fingers, turn palms to face sky</li><li>Push arms straight up, keeping them parallel</li><li>Rise onto balls of feet</li><li>Hold 3-5 slow breaths</li><li>Lower feet, then lower arms</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as arms rise up. <strong>Hold</strong> briefly at the top (if comfortable). <strong>Exhale</strong> slowly as you lower. The breath should be smooth and natural—don't hold if it causes discomfort. The key is using the breath to guide energy down after the upward stretch.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Opens Triple Burner for better energy distribution. Stretches spine and shoulders. Improves posture. Activates yang energy. Creates sense of openness in the chest.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep arms straight but not locked at the elbows. Don't shrug shoulders up to your ears—let them relax down. Stretch through your fingertips as if pushing into the sky.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Keep arms straight not locked</li><li>Stretch through fingertips</li><li>Relax shoulders down</li><li>Breathe smoothly</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Shrug shoulders</li><li>Hold breath</li><li>Bend elbows</li><li>Lean backward</li></ul></div></div>
     </div></div></div>
+    <!-- Movement 2 -->
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">2</span><h3>Draw Bow to Shoot the Eagle</h3><span>左右开弓似射雕</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Horse stance. Left hand hook, right hand pulls bowstring. Twist torso. Switch sides.</p>
-        <p><strong>Why:</strong> Opens chest, engages core, stretches side body. Lung meridian runs through arms.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale prepare, exhale "shoot".</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Knees over toes</li><li>Twist from waist</li><li>Full extension</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Lock knees</li><li>Use only arms</li><li>Skip sides</li></ul></div></div>
+        <p><strong>What to do:</strong> Step feet wide into a horse stance (knees bent, thighs parallel to ground). Left hand forms a "hook" shape (fist with thumb and index touching). Right hand pulls back like drawing a bowstring. Twist your torso to look at the extended left hand. Repeat on the other side.</p>
+        <p><strong>Why it works:</strong> This movement opens the chest and lung area, improving respiratory function. The twisting motion engages the core muscles and stretches the side body. The "drawing bow" action stimulates the lung meridian, which runs through the arms. This is excellent for respiratory health and core strength.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Step feet wide, bend knees into horse stance</li><li>Left hand forms hook, extend left arm</li><li>Right hand pulls back like a bowstring</li><li>Twist torso to look at left hand</li><li>Hold 2-3 breaths</li><li>Switch sides and repeat</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you prepare and extend. <strong>Exhale</strong> sharply as you "shoot" the bow—imagine letting the arrow fly. This creates a rhythmic pumping action that energizes the lungs. Switch sides on an inhale, then exhale as you shoot on that side.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Opens chest and lungs. Strengthens core. Stretches side body. Improves respiratory function. Builds mental focus.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep your knees over your toes—don't let them go past. The "hook" hand is like holding a bow. Extend fully as if reaching something far away. Twist from the waist, not just the shoulders.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Knees over toes</li><li>Twist from waist</li><li>Full extension</li><li>Switch sides evenly</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Lock knees</li><li>Use only arms</li><li>Forget to switch</li><li>Square hips</li></ul></div></div>
     </div></div></div>
+    <!-- Movement 3 -->
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">3</span><h3>Separate Heaven and Earth</h3><span>调理脾胃须单举</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Feet shoulder-width. Left palm up, right palm down. Lift left, press right. Switch.</p>
-        <p><strong>Why:</strong> Stimulates spleen/stomach meridians. Up-down motion pumps energy through digestion.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale lift, exhale press.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Torso upright</li><li>Smooth transitions</li><li>Coordinate breath</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Tilt torso</li><li>Rush</li><li>Tense shoulders</li></ul></div></div>
+        <p><strong>What to do:</strong> Stand with feet shoulder-width. Place left palm facing up at chest level (receiving energy). Place right palm facing down at dantian level (grounding energy). Lift the left hand while pressing the right hand down. Switch sides—right hand up, left hand down.</p>
+        <p><strong>Why it works:</strong> This movement directly stimulates the spleen and stomach meridians. In Traditional Chinese Medicine, the spleen governs transformation and transportation of nutrients. The up-down pumping motion creates movement in the digestive system, improving metabolism and energy flow.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand feet shoulder-width</li><li>Left palm up at chest, right palm down at dantian</li><li>Inhale and lift left hand (palm up) toward sky</li><li>Simultaneously press right hand down</li><li>Exhale as you switch hands</li><li>Repeat 5-10 times each side</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you lift the "heaven" hand upward. <strong>Exhale</strong> as you press the "earth" hand downward. The rising hand draws energy up through the body, the pressing hand roots energy down into the earth. This creates a cycling motion of energy.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Stimulates spleen/stomach meridians. Improves digestion. Balances energy up and down. Calms the mind. Regulates metabolism.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep your torso upright—don't tilt side to side. The movement should come from the shoulder, not the waist. Imagine you're holding a large ball that you're rotating between your hands.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Keep torso upright</li><li>Smooth transitions</li><li>Coordinate breath</li><li>Relax shoulders</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Tilt torso</li><li>Rush switch</li><li>Tense shoulders</li><li>Move from waist</li></ul></div></div>
     </div></div></div>
+    <!-- Movement 4 -->
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">4</span><h3>Wise Owl Gazes Backwards</h3><span>五劳七伤往后瞧</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Hands on thighs. Turn head to look behind. Hips stay forward. Alternate.</p>
-        <p><strong>Why:</strong> Stretches neck/upper spine. Releases tension from sitting. Stimulates Governing Vessel.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale one side, exhale other.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Relax shoulders</li><li>Turn fully</li><li>Hips stable</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Twist only neck</li><li>Move shoulders</li><li>Look down</li></ul></div></div>
+        <p><strong>What to do:</strong> Stand with feet shoulder-width, hands resting on the fronts of your thighs. Turn your head to look behind you—first to the left, then to the right. Keep your hips facing forward throughout. Your shoulders can rotate slightly but your hips must stay stable.</p>
+        <p><strong>Why it works:</strong> This stretches the neck and upper spine, releasing tension that accumulates from sitting and looking at screens. It stimulates the Governing Vessel (Du Mai), which runs along the spine. This movement also stretches the back muscles that are often neglected in daily life.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand with feet shoulder-width</li><li>Place hands on front of thighs</li><li>Turn head to look over left shoulder</li><li>Hold 2-3 breaths</li><li>Return to center</li><li>Turn head to look over right shoulder</li><li>Repeat 5-10 times each side</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you turn to one side. <strong>Exhale</strong> as you return to center or turn to the other side. Let the breath guide the rhythm—smooth and continuous. Don't hold your breath while looking back.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Releases neck tension. Stretches upper spine. Stimulates Governing Vessel. Relieves "five exhaustions" (tiredness from sitting/standing). Improves neck mobility.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Turn your head fully—try to look behind you as far as comfortable. Keep shoulders relaxed—don't let them rise up. Your hips should face forward the entire time.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Turn head fully</li><li>Keep shoulders down</li><li>Hips stable</li><li>Smooth movement</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Twist only neck</li><li>Rotate shoulders</li><li>Move hips</li><li>Strain</li></ul></div></div>
     </div></div></div>
+    <!-- Movement 5 -->
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">5</span><h3>Sway Head and Shake the Tail</h3><span>摇头摆尾去心火</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Low horse stance. Hands on knees. Sway torso in circles, head follows.</p>
-        <p><strong>Why:</strong> Removes "heart fire" (stress, agitation). Massages organs, creates spine movement.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Natural breathing.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Knees bent</li><li>Move from waist</li><li>Circle smoothly</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Head alone</li><li>Straighten legs</li><li>Rush</li></ul></div></div>
+        <p><strong>What to do:</strong> Squat down into a low horse stance (thighs nearly parallel to ground). Place hands on the tops of your knees. Sway your torso in a circular motion, letting your head follow the movement. Imagine a dragon swaying its body.</p>
+        <p><strong>Why it works:</strong> This movement is said to remove "heart fire"—the excess heat and agitation that comes from stress, anger, and overthinking. The swaying motion massage the internal organs and creates gentle movement in the spine. The low position engages the lower body and grounds excess energy.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Squat into low horse stance</li><li>Place hands on tops of knees</li><li>Relax neck and let head hang slightly</li><li>Start swaying torso in a circle</li><li>Let head follow the motion</li><li>Continue for 7-10 circles</li><li>Reverse direction</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Breathe naturally</strong> throughout this movement. Some traditions emphasize exhaling during the sway to release "heat." Let the breath be smooth and continuous—don't hold it. The movement should guide the breath, not the other way around.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Removes "heart fire" (stress/agitation). Massages internal organs. Creates spine mobility. Grounds excess energy. Calms the mind.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep your knees bent but stable. The movement comes from your waist and hips, not just your head. Let your head bob gently—don't rigidly control it. This should feel like a gentle wave, not a violent shake.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Keep knees bent</li><li>Move from waist</li><li>Gentle circles</li><li>Relax upper body</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Move head alone</li><li>Straighten legs</li><li>Force circles</li><li>Tense up</li></ul></div></div>
     </div></div></div>
+    <!-- Movement 6 -->
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">6</span><h3>Hold Feet to Strengthen Kidneys</h3><span>双手攀足固肾腰</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Bend from hips (not waist). Reach toward feet. Hold toes/ankles. Breathe into lower back.</p>
-        <p><strong>Why:</strong> Targets kidney meridian and lower back. Compresses/releases spine. Kidneys store essence (Jing).</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale rise, hold, exhale bend.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Bend from hips</li><li>Knees slightly bent</li><li>Feel stretch</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Bounce/force</li><li>Lock knees</li><li>Round back</li></ul></div></div>
+        <p><strong>What to do:</strong> Stand tall, then bend forward from the hips (not the waist). Let your torso hang down toward your legs. Reach for your feet—grab your toes, ankles, or whatever you can reach. Breathe into your lower back. Slowly rise back up.</p>
+        <p><strong>Why it works:</strong> This stretch targets the kidney meridian and lower back—areas that weaken with age. The forward bend compresses and releases the spine, stimulating nerve function and circulation. In TCM, the kidneys store Jing (essence), which is the foundation of vitality.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand with feet shoulder-width</li><li>Inhale and raise arms overhead</li><li>Exhale and bend forward from hips</li><li>Reach toward feet</li><li>Hold and breathe into lower back</li><li>Inhale and slowly rise up</li><li>Repeat 3-5 times</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you rise up to standing. <strong>Hold</strong> briefly at the top. <strong>Exhale</strong> as you bend forward. While bent, <strong>breathe deeply</strong> into your lower back—imagine breathing into the area behind your navel. This helps release tension in the lower spine.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Strengthens kidneys (vitality). Stretches lower back. Stimulates spine. Improves flexibility. Releases hamstrings.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Bend from the hips, not the waist—imagine your hips are hinges. Keep knees slightly bent, not locked. Don't bounce or force the stretch—let gravity do the work. If you can't reach your feet, hold your ankles or shins.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Bend from hips</li><li>Knees slightly bent</li><li>Breathe into back</li><li>Let gravity work</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Bounce/stretch</li><li>Lock knees</li><li>Round back</li><li>Force reach</li></ul></div></div>
     </div></div></div>
+    <!-- Movement 7 -->
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">7</span><h3>Clench Fists and Glare Fiercely</h3><span>攥拳怒目增气力</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Horse stance. Clench fists. Squint eyes slightly. Thrust fists forward alternately with sharp exhales.</p>
-        <p><strong>Why:</strong> Most active—builds Yang energy. Sharp exhalations increase heart rate. Builds willpower.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Exhale sharply each thrust. Inhale between.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Sharp exhalations</li><li>Engage core</li><li>Focus eyes</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Clench too tight</li><li>Hold breath</li><li>Straighten arms</li></ul></div></div>
+        <p><strong>What to do:</strong> Stand in horse stance (feet wide, knees bent). Clench your fists tightly. Squint your eyes slightly (the "angry" expression). Thrust one fist forward, then the other, alternating. Exhale sharply with each thrust.</p>
+        <p><strong>Why it works:</strong> This is the most active movement, building Yang energy. The forceful exhalations activate the "fighting" reflex, which increases heart rate, blood flow, and adrenaline. The clenched fists engage the entire body's kinetic chain. This builds willpower and determination.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Step into horse stance</li><li>Clench fists tightly</li><li>Make a "angry" face—squint eyes slightly</li><li>Inhale, then exhale sharply while thrusting right fist forward</li><li>Inhale briefly</li><li>Exhale sharply while thrusting left fist forward</li><li>Continue for 10-20 thrusts</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Exhale sharply</strong> with each fist thrust—this is the engine of the movement. The breath creates the power. <strong>Inhale</strong> briefly between thrusts. The exhalation should be forceful and audible—"ha!" Think of it as powering the movement with your breath.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Builds Yang energy. Increases heart rate. Builds willpower. Engages full body. Releases tension.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Don't clench so tight that you create tension in your hands and forearms. The "angry eyes" is a slight squint, not a fierce glare. Thrust from the core, not just the arm. Keep your elbows slightly bent, not locked.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Sharp exhalations</li><li>Engage core</li><li>Thrust from body</li><li>Keep rhythm</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Clench too tight</li><li>Hold breath</li><li>Straighten arms</li><li>Use only arms</li></ul></div></div>
     </div></div></div>
+    <!-- Movement 8 -->
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">8</span><h3>Bouncing on the Toes</h3><span>背后七颠百病消</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Rise onto balls of feet, drop heels sharply. Repeat 7 times. Feel vibration through body.</p>
-        <p><strong>Why:</strong> Vibrations shake loose tension. Settling movement—helps integrate practice.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale rise, exhale drop.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Rise balls first</li><li>Knees absorb</li><li>Feel vibration</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Slam heels</li><li>Straighten legs</li><li>Hold for balance</li></ul></div></div>
+        <p><strong>What to do:</strong> Rise onto the balls of your feet, lifting your heels as high as comfortable. Then drop your heels sharply back down, letting the impact create a gentle vibration through your body. Repeat 7 times.</p>
+        <p><strong>Why it works:</strong> The gentle vibrations "shake loose" tension and stagnant energy throughout the body. This is a settling movement—after the active practice, it helps the energy integrate and settle. The impact stimulates the feet and spine, promoting circulation.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand with feet shoulder-width</li><li>Rise onto balls of feet (heels up)</li><li>Hold briefly at top</li><li>Drop heels sharply</li><li>Let vibration travel through body</li><li>Repeat 7 times</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you rise onto the balls of your feet. <strong>Exhale</strong> as you drop your heels. Let the breath match the rhythm—inhale up, exhale down. This creates a meditative bouncing motion.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Shakes loose tension. Settles energy. Stimulates feet/spine. Promotes circulation. Integrates practice.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Don't slam your heels—let them drop naturally but decisively. Keep knees slightly bent to absorb the impact. Don't hold onto anything for balance—let your body learn to balance itself. This should feel grounding, not jarring.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Rise onto balls first</li><li>Knees absorb impact</li><li>Feel vibrations</li><li>Stay balanced</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Slam heels hard</li><li>Straighten legs</li><li>Hold for balance</li><li>Jarring impact</li></ul></div></div>
     </div></div></div>
 </section>
 <section id="yi">
-    <div class="section-header"><h2>Yi Jin Jing</h2><p>易筋经 — Tendon Changing Classic. Stronger practice for tendons and internal power.</p></div>
+    <div class="section-header"><h2>Yi Jin Jing</h2><span class="chinese">易筋经 — Tendon Changing Classic</span><p>Stronger practice focused on tendons and internal power.</p></div>
     <div class="principles"><h3>Why It Works</h3>
-        <div class="principle"><h4>Tendon Transformation</h4><p>"Yi Jin" means changing tendons—not muscles. Targets connective tissues that store elastic energy.</p></div>
-        <div class="principle"><h4>Internal Power</h4><p>Builds power from within. Generates force from the core, transmits through body.</p></div>
+        <div class="principle"><h4>Tendon Transformation</h4><p>"Yi Jin" means changing tendons—not muscles. Targets connective tissues that transmit force and store elastic energy.</p></div>
+        <div class="principle"><h4>Internal Power</h4><p>Builds power from within. Develops ability to generate force from the core and transmit through the body.</p></div>
         <div class="principle"><h4>Postural Foundation</h4><p>Static poses develop structural strength. Body learns to hold itself correctly.</p></div>
     </div>
     <div class="movement open"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">1</span><h3>Raise Hands to Heaven</h3><span>提手上式</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Feet together. Arms overhead, interlace fingers. Stretch up, rise onto toes. Hold 3-5 breaths.</p>
-        <p><strong>Why:</strong> Full-body stretch. Elongates spine, opens all meridians.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale rise, hold, exhale lower.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Stretch fully</li><li>Arms straight</li><li>Point fingers</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Lock elbows</li><li>Shrug</li><li>Hold breath</li></ul></div></div>
+        <p><strong>What to do:</strong> Stand with feet together. Raise arms overhead, interlace fingers with palms facing up. Push straight up, stretching through fingertips. Rise onto balls of feet. Hold for 3-5 breaths. Lower slowly.</p>
+        <p><strong>Why it works:</strong> This full-body stretch elongates the entire spine and opens all the meridians. The rising onto toes engages the posterior chain—calves, glutes, and back. This is a foundational movement that prepares the body for the rest of the practice.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand with feet together, arms at sides</li><li>Raise arms overhead</li><li>Interlace fingers, turn palms up</li><li>Push up through fingertips</li><li>Rise onto balls of feet</li><li>Hold 3-5 breaths</li><li>Lower feet, then lower arms</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as arms rise and you stretch upward. <strong>Hold</strong> briefly at the top if comfortable. <strong>Exhale</strong> slowly as you lower. The breath should be continuous—never hold breath forcefully.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Elongates spine. Opens meridians. Builds posterior chain. Improves posture. Full body stretch.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep arms straight but elbows soft—not locked. Point your fingers upward. Let your arms rotate at the shoulders. Don't shrug your shoulders.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Stretch fully</li><li>Arms straight</li><li>Point fingers</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Lock elbows</li><li>Shrug shoulders</li><li>Hold breath</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">2</span><h3>Wei Tuo Presents Staff</h3><span>韦陀献杵</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Feet shoulder-width. Press palms together at heart. Press down gently while maintaining arm shape.</p>
-        <p><strong>Why:</strong> Develops internal connection. Core engages while arms hold structure. Builds foundation.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Natural breathing.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Relax shoulders</li><li>Engage core gently</li><li>Maintain shape</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Strain neck</li><li>Push too hard</li><li>Tense body</li></ul></div></div>
+        <p><strong>What to do:</strong> Stand with feet shoulder-width. Bring palms together in front of your chest (prayer position). Press palms together firmly while maintaining the shape of your hands. Push downward slightly while keeping arms rounded.</p>
+        <p><strong>Why it works:</strong> This develops internal connection and body awareness. The pressing engages the core while the arms maintain their shape. It builds foundational strength and teaches the body to work as an integrated unit.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand feet shoulder-width</li><li>Bring palms together at chest</li><li>Press palms together firmly</li><li>Push downward slightly</li><li>Maintain arm shape</li><li>Hold for 5-10 breaths</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Breathe naturally</strong> throughout. Focus on maintaining pressure, not force. The breath should remain smooth and steady. Don't hold your breath—this is about isometric tension, not movement.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Develops internal connection. Builds core engagement. Teaches body integration. Foundation for strength.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep shoulders relaxed—don't let them rise. Your arms should maintain a rounded shape, like holding a ball. The pressure is inward and downward, not just pressing together.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Relax shoulders</li><li>Engage core</li><li>Maintain shape</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Strain neck</li><li>Push too hard</li><li>Tense whole body</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">3</span><h3>Pluck Stars, Change Dipper</h3><span>摘星换斗</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Right hand forms hook down, left hand raises overhead. Look at raised hand. Switch.</p>
-        <p><strong>Why:</strong> Spinal rotation with hip stability. Opens shoulder, stretches side body.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale raise, hold, exhale switch.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Hips stable</li><li>Turn fully</li><li>Extend through fingers</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Lean sideways</li><li>Twist only neck</li><li>Rush</li></ul></div></div>
+        <p><strong>What to do:</strong> Form a "hook" with your right hand (fist with thumb and index touching). Extend right arm down. Raise left arm overhead, palm facing forward. Look at your left hand. Switch sides.</p>
+        <p><strong>Why it works:</strong> This combines spinal rotation with hip stability. The "hook" hand engages forearm muscles. The overhead reach opens the shoulder while the twist stimulates the spine. This improves rotational mobility and coordination.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand feet shoulder-width</li><li>Form hook with right hand, extend down</li><li>Raise left arm overhead</li><li>Look at left hand</li><li>Hold 2-3 breaths</li><li>Switch sides</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you raise the arm and form the hook. <strong>Hold</strong> at the top of the movement. <strong>Exhale</strong> as you switch sides. The breath helps coordinate the transition.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Spinal rotation. Shoulder mobility. Hip stability. Forearm engagement. Coordination.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep your hips facing forward—don't rotate them. The "hook" should be firm but not tense. Extend through your fingers. Look at your raised hand.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Hips stable</li><li>Turn fully</li><li>Extend through fingers</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Rotate hips</li><li>Twist only neck</li><li>Rush</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">4</span><h3>Pull Nine Oxen by Tail</h3><span>倒拽九牛尾</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Horse stance. Right arm forward, left back. Pull in ox tail motion. Switch.</p>
-        <p><strong>Why:</strong> Builds arm/back strength. Pulling engages lats and core. Develops rotational power.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Exhale pull, inhale return.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Twist from waist</li><li>Use back muscles</li><li>Full extension</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Arms only</li><li>Square hips</li><li>Small movements</li></ul></div></div>
+        <p><strong>What to do:</strong> Take a horse stance. Extend right arm forward, left arm back. Pull backward in a "drawing ox" motion—imagine pulling a heavy animal by its tail. Switch sides.</p>
+        <p><strong>Why it works:</strong> This builds arm and back strength through pulling motions. The action engages the latissimus dorsi and core muscles. It develops rotational power and teaches the body to generate force from the center.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Take horse stance</li><li>Extend right arm forward, left back</li><li>Pull back with both arms</li><li>Imagine pulling an ox tail</li><li>Hold briefly</li><li>Switch sides</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Exhale</strong> as you pull back (the active phase). <strong>Inhale</strong> as you return to the starting position. The breath powers the movement.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Arm strength. Back strength. Rotational power. Core engagement. Martial foundation.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Twist from the waist, not just the arms. Keep the pulling motion smooth and controlled. Don't just use arm strength—engage your back.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Twist from waist</li><li>Use back muscles</li><li>Full extension</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Arms only</li><li>Square hips</li><li>Jerky movements</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">5</span><h3>Nine Ghosts Pull Sabre</h3><span>九鬼拔马刀</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Right hand behind back, left over head. Curve spine like a bow. Look at hand. Switch.</p>
-        <p><strong>Why:</strong> Extreme back flexibility. Opens shoulder, stretches spine. Strengthens back muscles.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale arch, exhale hold.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Curve like bow</li><li>Hips forward</li><li>Feel stretch</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Flatten back</li><li>Rotate hips</li><li>Force</li></ul></div></div>
+        <p><strong>What to do:</strong> Place right hand behind your back (palm facing out). Raise left arm overhead and curve it behind your head. Look up at your left hand. Curve your spine like a bow. Switch sides.</p>
+        <p><strong>Why it works:</strong> This creates extreme back flexibility while strengthening the spine. The arched position opens the shoulder and stretches the latissimus. It's excellent for posture and spinal health.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand feet shoulder-width</li><li>Place right hand behind back</li><li>Raise left arm overhead</li><li>Curve spine like a bow</li><li>Look up at hand</li><li>Hold 2-3 breaths</li><li>Switch sides</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you arch your back and form the bow shape. <strong>Exhale</strong> and hold at the peak. <strong>Inhale</strong> as you come out of the position.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Back flexibility. Shoulder opening. Spine strength. Posture improvement. Lat stretch.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep your hips facing forward. Curve your entire spine—not just the upper back. The "bow" should be your body, curved from head to tailbone.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Curve whole spine</li><li>Hips forward</li><li>Feel stretch</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Flatten back</li><li>Rotate hips</li><li>Force</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">6</span><h3>Three Plates Fall to Ground</h3><span>三盘落地</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Feet wide. Hands in front, palms down. Squat, press hands down. Rise, hands up. Repeat.</p>
-        <p><strong>Why:</strong> Leg strength and grounding. The pressing down activates the lower body.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Exhale down, inhale up.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Knees over toes</li><li>Press down firmly</li><li>Full range</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Knees past toes</li><li>Go too low</li><li>Rush</li></ul></div></div>
+        <p><strong>What to do:</strong> Stand with feet wide. Extend arms in front at shoulder height, palms facing down. Squat down while pressing palms toward the ground. Rise up while lifting hands. Repeat.</p>
+        <p><strong>Why it works:</strong> This builds leg strength and grounding. The pressing down engages the entire lower body. It's excellent for developing the strength needed for horse stance and other static poses.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand feet wide</li><li>Extend arms forward, palms down</li><li>Squat down</li><li>Press palms toward ground</li><li>Rise up</li><li>Lift hands</li><li>Repeat 7-10 times</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Exhale</strong> as you squat down and press. <strong>Inhale</strong> as you rise up and lift. The breath powers the movement.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Leg strength. Grounding. Lower body development. Core stability. Endurance.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep knees over toes. Go as low as comfortable. The pressing action engages your whole body.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Knees over toes</li><li>Press firmly</li><li>Full range</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Knees past toes</li><li>Go too low</li><li>Rush</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">7</span><h3>Green Dragon Explores Claw</h3><span>青龙探爪</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Horse stance. Left hand claw at chest. Right hand pushes through. Twist. Switch.</p>
-        <p><strong>Why:</strong> Internal organ massage. Twisting motion stimulates digestion and organ function.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Exhale push, inhale return.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Twist from waist</li><li>Full extension</li><li>Focus internally</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Use only arm</li><li>Keep hips square</li><li>Surface only</li></ul></div></div>
+        <p><strong>What to do:</strong> Take horse stance. Form a "claw" with left hand (fingers spread, slightly curved). Hold at chest level. Thrust right hand forward through the claw. Twist your torso. Switch sides.</p>
+        <p><strong>Why it works:</strong> The twisting motion massage the internal organs, especially the liver and spleen. The "claw" hand is used in many martial arts for grabbing. This develops internal organ health through movement.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Take horse stance</li><li>Form claw with left hand at chest</li><li>Thrust right hand through</li><li>Twist torso</li><li>Hold 2-3 breaths</li><li>Switch sides</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Exhale</strong> as you thrust and twist. <strong>Inhale</strong> as you return to center. Focus on internal sensation.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Organ massage. Digestive health. Core rotation. Martial applications. Internal awareness.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Twist from the waist. The claw is firm but not tight. Focus on the internal sensation, not just the external movement.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Twist from waist</li><li>Full extension</li><li>Focus internally</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Use only arm</li><li>Square hips</li><li>Surface only</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">8</span><h3>Tiger Pounces on Food</h3><span>卧虎扑食</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Lunge forward. Hands on ground/bed. Dip chest forward. Switch legs.</p>
-        <p><strong>Why:</strong> Full body stretch. Reaches deep muscles. Opens hip flexors.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale lunge, exhale hold.</p></div>
+        <p><strong>What to do:</strong> Lunge forward with right leg. Place hands on the ground (or bed/table if mobility is limited). Dip your chest forward toward the ground. Push back and switch legs.</p>
+        <p><strong>Why it works:</strong> This creates a full body stretch that reaches deep muscles. It opens the hip flexors and stretches the entire front of the body. It's excellent for counteracting the effects of sitting.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Lunge forward with right leg</li><li>Place hands on ground</li><li>Dip chest forward</li><li>Hold briefly</li><li>Push back</li><li>Switch legs</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you lunge and dip forward. <strong>Exhale</strong> as you hold and push back. Breathe deeply into the stretch.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Hip flexor opening. Full body stretch. Deep muscle reach. Counteracts sitting.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep your back leg straight. Dip from the shoulders, not the waist. Use a bed or table if needed.</p></div>
         <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>From shoulders</li><li>Full extension</li><li>Switch smoothly</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Strain lower back</li><li>Knees past toes</li><li>Hold too long</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">9</span><h3>Bow Head, Beat Drum</h3><span>打躬击鼓</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Feet wide. Hands behind ears. Bend forward, tap head. Rise, tap again. Repeat.</p>
-        <p><strong>Why:</strong> Spine flexibility. Rounding the spine releases vertebral tension.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Exhale bend, inhale rise.</p></div>
+        <p><strong>What to do:</strong> Stand with feet wide. Place hands behind your ears (fingers pointing toward each other). Bend forward from the waist, letting your head drop. Tap your head with your hands ("beat the drum"). Rise and tap again.</p>
+        <p><strong>Why it works:</strong> Rounding the spine releases tension in the vertebrae. The tapping stimulates acupuncture points on the head. This improves spine flexibility and relieves head/neck tension.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand feet wide</li><li>Hands behind ears</li><li>Bend forward</li><li>Tap head with hands</li><li>Rise slightly</li><li>Tap again</li><li>Repeat</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Exhale</strong> as you bend forward. <strong>Inhale</strong> as you rise up. The breath helps pump the movement.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Spine flexibility. Releases vertebrae tension. Head stimulation. Neck release.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Round your spine—don't keep it straight. Let your head hang naturally. The tapping should be gentle but definite.</p></div>
         <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Round spine</li><li>Full bend</li><li>Relax neck</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Straight spine</li><li>Strain neck</li><li>Hold breath</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">10</span><h3>Shake Head, Sway Tail</h3><span>摇头摆尾</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Feet wide, squat. Hands on knees. Rotate hips in circles. Head follows.</p>
-        <p><strong>Why:</strong> Hip mobility, digestion. Circular motion stimulates abdominal organs.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Natural breathing.</p></div>
+        <p><strong>What to do:</strong> Squat down with feet wide. Place hands on knees. Rotate your hips in circles—first one direction, then the other. Let your head follow the motion.</p>
+        <p><strong>Why it works:</strong> Hip circles stimulate the abdominal organs and improve hip mobility. The rotation massage the digestive system. This is excellent for digestive health and hip flexibility.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Squat with feet wide</li><li>Hands on knees</li><li>Rotate hips in circles</li><li>Let head follow</li><li>Circle one direction</li><li>Reverse</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Breathe naturally</strong> throughout. Let the breath be smooth and continuous. Don't hold your breath.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Hip mobility. Digestive stimulation. Lower back health. Organ massage.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Move from your hips, not your shoulders. Keep the movement smooth and circular. Don't rush.</p></div>
         <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Move from hips</li><li>Full circles</li><li>Relax upper body</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Head leads</li><li>Square hips</li><li>Tense shoulders</li></ul></div></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">11</span><h3>Drop Tail, Raise Head</h3><span>掉尾摇头</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Feet together. Hands overhead, interlaced. Bend side to side. Let arms drop.</p>
-        <p><strong>Why:</strong> Lateral stretch. Balances left/right sides of body.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale one side, exhale other.</p></div>
-        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Full bend</li><li>Relax shoulders</li><li>Arms heavy</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Hold breath</li><li>One side only</li><li>Tense up</li></ul></div></div>
+        <p><strong>What to do:</strong> Stand with feet together. Raise arms overhead and interlace fingers. Bend side to side, letting your arms drop toward the ground on each side.</p>
+        <p><strong>Why it works:</strong> This lateral stretch balances the left and right sides of the body. It stretches the obliques and intercostal muscles. It creates balance and symmetry in the torso.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand feet together</li><li>Raise arms overhead</li><li>Interlace fingers</li><li>Bend to left side</li><li>Let arms drop</li><li>Return to center</li><li>Bend to right side</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you rise to center. <strong>Exhale</strong> as you bend to the side. Let the breath guide the movement.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Lateral stretch. Balances sides. Oblique stretch. Ribcage opening.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Keep both feet grounded. Let your arms get heavy as you bend. Don't tilt forward or backward.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Full bend</li><li>Relax shoulders</li><li>Arms heavy</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Tilt forward</li><li>One side only</li><li>Tense up</li></ul></div></div>
     </div></div></div>
 </section>
 <section id="luo">
-    <div class="section-header"><h2>Luohan Qigong</h2><p>罗汉功 — Arhat Practice. Gentle movements for calming the mind.</p></div>
+    <div class="section-header"><h2>Luohan Qigong</h2><span class="chinese">罗汉功 — Arhat Practice</span><p>Gentle movements for calming the mind.</p></div>
     <div class="principles"><h3>Why It Works</h3>
         <div class="principle"><h4>Calming the Mind</h4><p>Gentle movements create a meditative state. Reduces stress and anxiety.</p></div>
         <div class="principle"><h4>Nervous System Balance</h4><p>Activates parasympathetic nervous system. Slows heart rate, reduces cortisol.</p></div>
         <div class="principle"><h4>Internal Awareness</h4><p>Focuses on feeling rather than form. Develops interoception.</p></div>
     </div>
     <div class="movement open"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">1</span><h3>Preparation</h3><span>预备式</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Stand naturally. Arms at sides. Relax shoulders. Breathe naturally. Center attention.</p>
-        <p><strong>Why:</strong> Arrives in the present moment. Releases tension before practice begins.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Natural breathing into dantian.</p></div>
+        <p><strong>What to do:</strong> Stand naturally with feet shoulder-width. Arms at sides, shoulders relaxed. Close your eyes or let them rest softly downward. Breathe naturally. Center your attention on the present moment.</p>
+        <p><strong>Why it works:</strong> This "arrival" prepares your mind and body for practice. It transitions you from the busy world into a contemplative state. Relaxing the shoulders releases tension that accumulates during the day.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand with feet shoulder-width</li><li>Arms at sides</li><li>Relax shoulders</li><li>Close eyes or soften gaze</li><li>Breathe naturally</li><li>Center attention</li><li>Hold 1-2 minutes</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Breathe naturally</strong> into your dantian (lower abdomen). Don't control the breath—just observe it. Let it find its own rhythm. The breath should be quiet and effortless.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Centers attention. Releases shoulder tension. Transitions to practice. Present moment awareness.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Don't force anything—this is about arriving, not achieving. Let your joints relax. Feel your feet on the ground. Don't rush this step.</p></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">2</span><h3>Embrace Tai Chi</h3><span>怀抱太极</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Arms in front, palms facing. Move in circles, like holding a big ball. Clockwise then counter.</p>
-        <p><strong>Why:</strong> Balances energy. Creates sense of center and grounding.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale one direction, exhale other.</p></div>
+        <p><strong>What to do:</strong> Hold your arms in front of your body as if holding a large ball. Palms face each other, about shoulder-width apart. Move your hands in circles—clockwise, then counter-clockwise.</p>
+        <p><strong>Why it works:</strong> This creates a sense of center and grounding. The circular motion balances energy flow. It develops body awareness and coordination. The "ball" helps you feel your body's relationship to space.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Hold arms in front</li><li>Palms face each other</li><li>Imagine holding a large ball</li><li>Move hands in circles</li><li>Clockwise 7 times</li><li>Counter-clockwise 7 times</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as hands move in one direction, <strong>exhale</strong> as they move in the other. Or simply breathe naturally and let the breath guide the rhythm naturally.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Center and grounding. Body awareness. Balance energy. Coordination. Internal focus.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Feel the "ball" in your hands—even though it's imaginary. The circles should be smooth and continuous. Keep shoulders relaxed.</p></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">3</span><h3>Push Window, Moon</h3><span>推窗望月</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Right hand pushes right, left hand at chest. Turn head to look. Switch sides.</p>
-        <p><strong>Why:</strong> Lateral extension. Opens side body, stimulates rib cage.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Inhale prepare, exhale push.</p></div>
+        <p><strong>What to do:</strong> Extend right arm to the right side at shoulder height, palm facing forward. Place left hand at your chest. Turn your head to look at the extended hand. Push slightly as if pushing open a window. Switch sides.</p>
+        <p><strong>Why it works:</strong> This lateral extension opens the side body and ribcage. It stretches the intercostal muscles between the ribs. The turning head stimulates the neck and upper spine.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Extend right arm to right</li><li>Left hand at chest</li><li>Turn head to look at right hand</li><li>Push slightly</li><li>Hold 2-3 breaths</li><li>Switch sides</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Inhale</strong> as you prepare and extend. <strong>Exhale</strong> as you push. Let the breath power the gentle push.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Lateral stretch. Ribcage opening. Neck release. Side body awareness.</p></div>
+        <div class="tips"><h4>Tips</h4><p>The push is gentle—more of an intention than a forceful action. Keep your hips facing forward. Feel the stretch along your side body.</p></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">4</span><h3>Phoenix Dances</h3><span>凤凰起舞</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Arms wave like wings. Side to side sway. Flowing, gentle motion.</p>
-        <p><strong>Why:</strong> Releases tension in shoulders and back. Creates relaxation response.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Match breath to sway rhythm.</p></div>
+        <p><strong>What to do:</strong> Let your arms wave gently like wings. Move from side to side, swaying your upper body. The motion should be flowing and graceful—like a phoenix bird dancing.</p>
+        <p><strong>Why it works:</strong> This releases tension in the shoulders and upper back. The gentle swaying creates a relaxation response in the nervous system. It's excellent for stress relief and emotional release.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Let arms hang loosely</li><li>Begin swaying side to side</li><li>Let arms wave like wings</li><li>Flowing motion</li><li>Continue for 30-60 seconds</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Match breath to sway</strong>—inhale one direction, exhale the other. Or breathe naturally and let the movement guide the breath. The key is smoothness.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Shoulder release. Stress relief. Nervous system calm. Emotional release. Upper body mobility.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Let your arms be heavy—not lifted forcefully. The movement comes from your body, not your will. Imagine you're floating.</p></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">5</span><h3>Follow Wind, Pull Flag</h3><span>顺风扯旗</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> One arm up, one down. Twist torso. Like pulling a rope.</p>
-        <p><strong>Why:</strong> Spinal twist with gentle force. Massages internal organs.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Exhale twist.</p></div>
+        <p><strong>What to do:</strong> Extend one arm up at an angle, the other down. Twist your torso toward the raised arm—like pulling a flag or rope. Switch sides. The motion should be smooth and flowing.</p>
+        <p><strong>Why it works:</strong> This gentle spinal twist massage the internal organs. It stretches the obliques and back muscles. The diagonal reach creates length through the spine.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Right arm up at angle</li><li>Left arm down</li><li>Twist toward right</li><li>Like pulling a flag</li><li>Hold briefly</li><li>Switch sides</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Exhale</strong> as you twist in each direction. Let the twist happen naturally—don't force it.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Spinal twist. Organ massage. Oblique stretch. Diagonal length.</p></div>
+        <div class="tips"><h4>Tips</h4><p>The movement is gentle—not a deep twist. Keep both feet grounded. Let the twist happen in your spine, not your hips.</p></div>
     </div></div></div>
     <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">6</span><h3>Quiet Cultivation</h3><span>静养</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
-        <p><strong>What:</strong> Stand still. Hands on dantian. Breathe gently. Meditate.</p>
-        <p><strong>Why:</strong> Integration of practice. Allows benefits to settle. Calms the mind.</p>
-        <div class="breathing"><h4>Breathing</h4><p>Deep, slow, into dantian.</p></div>
+        <p><strong>What to do:</strong> Stand still. Place hands on your dantian (lower abdomen)—left hand over right for women, right over left for men. Breathe gently. Meditate silently.</p>
+        <p><strong>Why it works:</strong> This integration of practice allows the benefits to settle. It calms the mind and allows energy to circulate. Standing meditation consolidates the practice.</p>
+        <div class="steps"><h4>Step by Step</h4><ol><li>Stand still</li><li>Place hands on dantian</li><li>Close eyes if comfortable</li><li>Breathe gently</li><li>Meditate silently</li><li>Hold 2-5 minutes</li></ol></div>
+        <div class="breathing"><h4>Breathing</h4><p><strong>Deep, slow breathing</strong> into the dantian. The breath should be quiet and effortless. Don't control it—just let it flow naturally.</p></div>
+        <div class="benefits"><h4>Benefits</h4><p>Integration of practice. Mind calming. Energy settling. Deep relaxation. Practice consolidation.</p></div>
+        <div class="tips"><h4>Tips</h4><p>Don't rush this—it's the most important part. Let go of any thoughts. Simply be present.</p></div>
     </div></div></div>
 </section>
 <footer><p>愿您健康长寿 — May you have health and longevity</p></footer>
