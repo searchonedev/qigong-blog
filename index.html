@@ -3,794 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qi Gong Masters | Ba Duan Jin · Yi Jin Jing · Luohan</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Qi Gong Practice Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #141414;
-            --bg-card: #1a1a1a;
-            --text-primary: #f5f5f0;
-            --text-secondary: #a0a0a0;
-            --accent: #c9a959;
-            --accent-dim: #8a7340;
-            --border: #2a2a2a;
-            --gradient-gold: linear-gradient(135deg, #c9a959 0%, #e8d5a3 50%, #c9a959 100%);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-dim);
-            border-radius: 4px;
-        }
-        
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
-        
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1.5rem 3rem;
-            background: linear-gradient(180deg, var(--bg-primary) 0%, transparent 100%);
-            backdrop-filter: blur(10px);
-        }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--accent);
-            text-decoration: none;
-            letter-spacing: 0.1em;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            transition: color 0.3s;
-            letter-spacing: 0.05em;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 2rem;
-            position: relative;
-            background: 
-                radial-gradient(ellipse at 50% 0%, rgba(201, 169, 89, 0.08) 0%, transparent 50%),
-                var(--bg-primary);
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-weight: 300;
-        }
-        
-        .hero-cta {
-            display: inline-flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .btn {
-            padding: 1rem 2.5rem;
-            border: 1px solid var(--accent);
-            background: transparent;
-            color: var(--accent);
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s;
-            text-decoration: none;
-        }
-        
-        .btn:hover {
-            background: var(--accent);
-            color: var(--bg-primary);
-        }
-        
-        .btn-filled {
-            background: var(--accent);
-            color: var(--bg-primary);
-        }
-        
-        .btn-filled:hover {
-            background: transparent;
-            color: var(--accent);
-        }
-        
-        /* Sections */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-        
-        .section-header p {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Cards Grid */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-        
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 2.5rem;
-            transition: all 0.4s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        
-        .card:hover {
-            border-color: var(--accent-dim);
-            transform: translateY(-4px);
-        }
-        
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-        
-        .card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-        
-        .card-meta {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 1rem;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        
-        .card-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        /* Exercise Detail */
-        .exercise-section {
-            padding: 4rem 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .exercise-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .exercise-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .exercise-header .chinese {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-        
-        .exercise-content {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .content-block {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-left: 3px solid var(--accent);
-        }
-        
-        .content-block h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
-        .content-block ul {
-            list-style: none;
-        }
-        
-        .content-block li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-        }
-        
-        .content-block li::before {
-            content: '◆';
-            position: absolute;
-            left: 0;
-            color: var(--accent-dim);
-            font-size: 0.6rem;
-            top: 0.9rem;
-        }
-        
-        .dos-donts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .dos, .donts {
-            padding: 2rem;
-        }
-        
-        .dos {
-            background: rgba(201, 169, 89, 0.05);
-            border: 1px solid rgba(201, 169, 89, 0.2);
-        }
-        
-        .donts {
-            background: rgba(180, 80, 80, 0.05);
-            border: 1px solid rgba(180, 80, 80, 0.2);
-        }
-        
-        .dos h4, .donts h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .dos h4 { color: #c9a959; }
-        .donts h4 { color: #c95959; }
-        
-        /* Table */
-        .table-wrap {
-            overflow-x: auto;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-        
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        th {
-            color: var(--accent);
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-        
-        td {
-            color: var(--text-secondary);
-        }
-        
-        tr:hover td {
-            background: var(--bg-secondary);
-        }
-        
-        /* Comparison */
-        .comparison-table {
-            margin-top: 2rem;
-        }
-        
-        /* Footer */
-        footer {
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            margin-top: 4rem;
-        }
-        
-        footer p {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        
-        footer a {
-            color: var(--accent);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem 1.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            section {
-                padding: 4rem 1.5rem;
-            }
-        }
+        :root { --bg: #0a0a0a; --bg2: #141414; --bg3: #1a1a1a; --text: #f5f5f0; --text2: #a0a0a0; --accent: #c9a959; --border: #2a2a2a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 2rem; background: linear-gradient(180deg, var(--bg) 0%, transparent 100%); }
+        nav { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent); text-decoration: none; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6rem 2rem; background: radial-gradient(ellipse at 50% 0%, rgba(201,169,89,0.08) 0%, transparent 50%), var(--bg); }
+        .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.1; margin-bottom: 1rem; background: linear-gradient(135deg, #c9a959 0%, #e8d5a3 50%, #c9a959 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text2); font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; }
+        .btn { padding: 0.85rem 1.75rem; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; display: inline-block; }
+        .btn:hover { background: transparent; color: var(--accent); }
+        section { padding: 4rem 1.5rem; max-width: 850px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 2.5rem; }
+        .section-header h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .section-header p { color: var(--text2); }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+        .card { background: var(--bg3); border: 1px solid var(--border); padding: 1.5rem; text-decoration: none; color: inherit; transition: all 0.3s; }
+        .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .card-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .card h3 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+        .card p { color: var(--text2); font-size: 0.9rem; }
+        .card-meta { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text2); display: flex; gap: 1rem; }
+        .principles { background: var(--bg3); border: 1px solid var(--border); padding: 1.75rem; margin-bottom: 2rem; }
+        .principles h3 { color: var(--accent); margin-bottom: 1rem; }
+        .principle { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+        .principle:last-child { border: none; }
+        .principle h4 { font-size: 1rem; margin-bottom: 0.3rem; }
+        .principle p { color: var(--text2); font-size: 0.9rem; }
+        .movement { background: var(--bg2); border: 1px solid var(--border); margin-bottom: 0.75rem; overflow: hidden; }
+        .movement-header { padding: 1rem 1.25rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .movement-header:hover { background: var(--bg3); }
+        .movement-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--accent); color: var(--bg); border-radius: 50%; font-weight: 600; margin-right: 0.6rem; font-size: 0.8rem; }
+        .movement-title { flex: 1; }
+        .movement-title h3 { font-size: 1rem; }
+        .movement-title span { font-size: 0.75rem; color: var(--accent); }
+        .movement-toggle { color: var(--text2); font-size: 1.2rem; }
+        .movement.open .movement-toggle { transform: rotate(45deg); }
+        .movement-content { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+        .movement.open .movement-content { max-height: 1200px; }
+        .movement-body { padding: 0 1.25rem 1.25rem; border-top: 1px solid var(--border); }
+        .movement-body p { color: var(--text2); font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .breathing { background: rgba(201,169,89,0.08); border-left: 3px solid var(--accent); padding: 0.75rem; margin: 0.6rem 0; }
+        .breathing h4 { color: var(--accent); font-size: 0.85rem; margin-bottom: 0.3rem; }
+        .breathing p { color: var(--text2); font-size: 0.8rem; margin: 0; }
+        .dd { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-top: 0.75rem; }
+        .do, .dont { padding: 0.75rem; }
+        .do { background: rgba(201,169,89,0.05); border: 1px solid rgba(201,169,89,0.2); }
+        .dont { background: rgba(180,80,80,0.05); border: 1px solid rgba(180,80,80,0.2); }
+        .do h4 { color: #c9a959; font-size: 0.85rem; }
+        .dont h4 { color: #c95959; font-size: 0.85rem; }
+        .do ul, .dont ul { list-style: none; font-size: 0.75rem; color: var(--text2); }
+        .do li, .dont li { padding: 0.25rem 0; padding-left: 0.8rem; position: relative; }
+        .do li::before { content: '✓'; position: absolute; left: 0; color: #c9a959; }
+        .dont li::before { content: '✗'; position: absolute; left: 0; color: #c95959; }
+        footer { padding: 2.5rem; text-align: center; border-top: 1px solid var(--border); margin-top: 3rem; }
+        footer p { color: var(--text2); font-size: 0.8rem; }
+        @media (max-width: 600px) { .nav-links { display: none; } .hero h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo">氣</a>
-            <ul class="nav-links">
-                <li><a href="#ba-duan-jin">Ba Duan Jin</a></li>
-                <li><a href="#yi-jin-jing">Yi Jin Jing</a></li>
-                <li><a href="#luohan">Luohan</a></li>
-                <li><a href="#comparison">Comparison</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>The Art of Qi Gong</h1>
-                <p class="hero-subtitle">Three classical systems for health, vitality, and inner transformation. Discover the ancient Chinese practices that have guided practitioners for centuries.</p>
-                <div class="hero-cta">
-                    <a href="#ba-duan-jin" class="btn btn-filled">Begin Practice</a>
-                    <a href="#comparison" class="btn">Compare Systems</a>
-                </div>
-            </div>
-        </section>
-        
-        <section id="overview">
-            <div class="section-header">
-                <h2>Three Treasures</h2>
-                <p>Each system offers unique benefits. Ba Duan Jin for balance, Yi Jin Jing for strength, Luohan for calm.</p>
-            </div>
-            
-            <div class="cards-grid">
-                <a href="#ba-duan-jin" class="card">
-                    <span class="card-icon">☯️</span>
-                    <h3>Ba Duan Jin</h3>
-                    <p>Eight Pieces of Silk — A gentle practice for overall health, flexibility, and energy circulation.</p>
-                    <div class="card-meta">
-                        <span>🕐 15-20 min</span>
-                        <span>⭐ Easy</span>
-                    </div>
-                </a>
-                
-                <a href="#yi-jin-jing" class="card">
-                    <span class="card-icon">⚔️</span>
-                    <h3>Yi Jin Jing</h3>
-                    <p>Muscle/Tendon Changing Classic — A stronger practice that transforms the body and builds internal power.</p>
-                    <div class="card-meta">
-                        <span>🕐 20-30 min</span>
-                        <span>⭐⭐ Medium</span>
-                    </div>
-                </a>
-                
-                <a href="#luohan" class="card">
-                    <span class="card-icon">🧘</span>
-                    <h3>Luohan Qigong</h3>
-                    <p>Arhat Practice — A gentle, meditative system for calming the mind and balancing the nervous system.</p>
-                    <div class="card-meta">
-                        <span>🕐 15-30 min</span>
-                        <span>⭐ Easy</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-        
-        <section id="ba-duan-jin">
-            <div class="section-header">
-                <h2>Ba Duan Jin</h2>
-                <p>八段锦 — Eight Pieces of Silk. A complete health practice originating from the Song Dynasty.</p>
-            </div>
-            
-            <div class="exercise-section">
-                <div class="exercise-header">
-                    <p class="chinese">八段锦</p>
-                    <h2>Eight Pieces of Silk</h2>
-                    <p>A gentle, flowing practice for health and longevity</p>
-                </div>
-                
-                <div class="exercise-content">
-                    <div class="content-block">
-                        <h3>Theory</h3>
-                        <p>Ba Duan Jin combines slow movements with deep breathing and mental focus to balance Yin and Yang and circulate Qi through the meridians. It works on the principle that proper energy flow creates health and vitality.</p>
-                    </div>
-                    
-                    <div class="content-block">
-                        <h3>The Eight Movements</h3>
-                        <ul>
-                            <li><strong>Hands Hold Sky</strong> — Regulates the Triple Burner (三焦)</li>
-                            <li><strong>Draw Bow Like Shooting Eagle</strong> — Opens the Lung meridian</li>
-                            <li><strong>Single Arm Lift</strong> — Balances Spleen and Stomach</li>
-                            <li><strong>Look Back</strong> — Relieves the Five Exhaustions</li>
-                            <li><strong>Shake Head and Tail</strong> — Calms excess Heart Fire</li>
-                            <li><strong>Grab Feet</strong> — Strengthens Kidneys and lower back</li>
-                            <li><strong>Clench Fist with Angry Eyes</strong> — Builds Yang energy and willpower</li>
-                            <li><strong>Heel Drops</strong> — Eliminates hundreds of ailments</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="dos-donts">
-                        <div class="dos">
-                            <h4>✓ Do</h4>
-                            <ul>
-                                <li>Practice in the morning, empty stomach</li>
-                                <li>Wear loose, comfortable clothing</li>
-                                <li>Breathe naturally into the dantian</li>
-                                <li>Move slowly and smoothly</li>
-                                <li>Focus on the feeling of Qi</li>
-                            </ul>
-                        </div>
-                        <div class="donts">
-                            <h4>✗ Don't</h4>
-                            <ul>
-                                <li>Don't practice in direct sunlight</li>
-                                <li>Don't talk while practicing</li>
-                                <li>Don't force your breathing</li>
-                                <li>Don't practice when sick</li>
-                                <li>Don't over-practice (once daily is enough)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="yi-jin-jing">
-            <div class="section-header">
-                <h2>Yi Jin Jing</h2>
-                <p>易筋经 — Muscle/Tendon Changing Classic. The martial foundation of Shaolin.</p>
-            </div>
-            
-            <div class="exercise-section">
-                <div class="exercise-header">
-                    <p class="chinese">易筋经</p>
-                    <h2>Muscle/Tendon Changing Classic</h2>
-                    <p>Strengthen tendons and build internal power</p>
-                </div>
-                
-                <div class="exercise-content">
-                    <div class="content-block">
-                        <h3>Origin & Theory</h3>
-                        <p>Attributed to Bodhidharma, the founder of Shaolin martial arts, Yi Jin Jing focuses on transforming the tendons and building internal strength. Unlike external martial training, this practice develops power from within.</p>
-                    </div>
-                    
-                    <div class="content-block">
-                        <h3>The 12 Exercises</h3>
-                        <ul>
-                            <li><strong>Raise Hands to Heaven</strong> — Full body stretch, spinal elongation</li>
-                            <li><strong>Wei Tuo Presents Staff I</strong> — Focus and concentration</li>
-                            <li><strong>Wei Tuo Presents Staff II</strong> — Arm strength building</li>
-                            <li><strong>Pluck Stars, Change Dipper</strong> — Spinal rotation</li>
-                            <li><strong>Pull Nine Oxen by Tail</strong> — Arm and back strength</li>
-                            <li><strong>Nine Ghosts Pull Sabre</strong> — Back flexibility</li>
-                            <li><strong>Three Plates Fall</strong> — Leg strength and grounding</li>
-                            <li><strong>Green Dragon Explores Claw</strong> — Internal organ massage</li>
-                            <li><strong>Tiger Pounces on Food</strong> — Full body stretch</li>
-                            <li><strong>Bow Head, Beat Drum</strong> — Spine flexibility</li>
-                            <li><strong>Shake Head, Sway Tail</strong> — Hip mobility</li>
-                            <li><strong>Drop Tail, Raise Head</strong> — Lateral stretch</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="dos-donts">
-                        <div class="dos">
-                            <h4>✓ Do</h4>
-                            <ul>
-                                <li>Warm up before starting</li>
-                                <li>Hold each pose 3-5 breaths</li>
-                                <li>Focus on tendons, not just muscles</li>
-                                <li>Move slowly between poses</li>
-                                <li>End with standing meditation</li>
-                            </ul>
-                        </div>
-                        <div class="donts">
-                            <h4>✗ Don't</h4>
-                            <ul>
-                                <li>Don't bounce or stretch violently</li>
-                                <li>Don't strain beyond comfort</li>
-                                <li>Don't skip warm-up</li>
-                                <li>Don't hold breath</li>
-                                <li>Don't practice on full stomach</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="luohan">
-            <div class="section-header">
-                <h2>Luohan Qigong</h2>
-                <p>罗汉功 — Arhat Practice. The gentle path to inner peace.</p>
-            </div>
-            
-            <div class="exercise-section">
-                <div class="exercise-header">
-                    <p class="chinese">罗汉功</p>
-                    <h2>Arhat Practice</h2>
-                    <p>Calm the mind and balance the nervous system</p>
-                </div>
-                
-                <div class="exercise-content">
-                    <div class="content-block">
-                        <h3>Philosophy</h3>
-                        <p>Named after the Arhats (enlightened disciples in Buddhism), Luohan Qigong is the gentlest of the three systems. It emphasizes internal feeling over external form, making it perfect for those seeking relaxation and mental clarity.</p>
-                    </div>
-                    
-                    <div class="content-block">
-                        <h3>Key Principles</h3>
-                        <ul>
-                            <li><strong>Embrace Tai Chi</strong> — Flowing arm circles</li>
-                            <li><strong>Push Window, Moon</strong> — Lateral extensions</li>
-                            <li><strong>Phoenix Dances</strong> — Wing-like arm waves</li>
-                            <li><strong>Follow Wind, Pull Flag</strong> — Twisting motions</li>
-                            <li><strong>Quiet Cultivation</strong> — Standing meditation</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="dos-donts">
-                        <div class="dos">
-                            <h4>✓ Do</h4>
-                            <ul>
-                                <li>Move slowly and gently</li>
-                                <li>Focus on internal feeling</li>
-                                <li>Relax completely</li>
-                                <li>Breathe into the dantian</li>
-                                <li>End with stillness</li>
-                            </ul>
-                        </div>
-                        <div class="donts">
-                            <h4>✗ Don't</h4>
-                            <ul>
-                                <li>Don't force movements</li>
-                                <li>Don't focus on appearance over feeling</li>
-                                <li>Don't tense up</li>
-                                <li>Don't use shallow breathing</li>
-                                <li>Don't skip the ending stillness</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="comparison">
-            <div class="section-header">
-                <h2>Compare Systems</h2>
-                <p>Find the right practice for your goals</p>
-            </div>
-            
-            <div class="table-wrap comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Aspect</th>
-                            <th>Ba Duan Jin</th>
-                            <th>Yi Jin Jing</th>
-                            <th>Luohan Qigong</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Origin</td>
-                            <td>Song Dynasty</td>
-                            <td>Tang Dynasty (Bodhidharma)</td>
-                            <td>Buddhist tradition</td>
-                        </tr>
-                        <tr>
-                            <td>Style</td>
-                            <td>Moderate</td>
-                            <td>Strong / Martial</td>
-                            <td>Gentle / Meditative</td>
-                        </tr>
-                        <tr>
-                            <td>Primary Focus</td>
-                            <td>Overall health</td>
-                            <td>Tendons & strength</td>
-                            <td>Mind & calm</td>
-                        </tr>
-                        <tr>
-                            <td>Difficulty</td>
-                            <td>Easy</td>
-                            <td>Medium</td>
-                            <td>Easy</td>
-                        </tr>
-                        <tr>
-                            <td>Duration</td>
-                            <td>15-20 min</td>
-                            <td>20-30 min</td>
-                            <td>15-30 min</td>
-                        </tr>
-                        <tr>
-                            <td>Energy</td>
-                            <td>Balanced</td>
-                            <td>Yang-heavy</td>
-                            <td>Yin-heavy</td>
-                        </tr>
-                        <tr>
-                            <td>Best For</td>
-                            <td>Beginners, daily health</td>
-                            <td>Martial arts base, strength</td>
-                            <td>Relaxation, stress relief</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <p>Qi Gong Masters — A modern guide to classical practices</p>
-        <p style="margin-top: 1rem;">愿您健康长寿 · May you have health and longevity</p>
-    </footer>
-    
-    <script>
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Fade in elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.card, .exercise-section, .content-block').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+<header><nav><a href="#" class="logo">氣</a><ul class="nav-links"><li><a href="#ba">Ba Duan Jin</a></li><li><a href="#yi">Yi Jin Jing</a></li><li><a href="#luo">Luohan</a></li></ul></nav></header>
+<main>
+<section class="hero">
+    <h1>The Art of Qi Gong</h1>
+    <p>A practical guide to three classical systems. Movements, breathing, and why each practice works.</p>
+    <a href="#ba" class="btn">Start Practice</a>
+</section>
+<section id="overview">
+    <div class="section-header"><h2>Three Systems</h2><p>Each offers unique benefits.</p></div>
+    <div class="cards">
+        <a href="#ba" class="card"><span class="card-icon">☯️</span><h3>Ba Duan Jin</h3><p>Gentle flowing movements for overall health.</p><div class="card-meta"><span>🕐 15-20 min</span><span>⭐ Easy</span></div></a>
+        <a href="#yi" class="card"><span class="card-icon">⚔️</span><h3>Yi Jin Jing</h3><p>Stronger practice that builds internal power.</p><div class="card-meta"><span>🕐 20-30 min</span><span>⭐⭐ Medium</span></div></a>
+        <a href="#luo" class="card"><span class="card-icon">🧘</span><h3>Luohan Qigong</h3><p>Gentle practice for calming the mind.</p><div class="card-meta"><span>🕐 15-30 min</span><span>⭐ Easy</span></div></a>
+    </div>
+</section>
+<section id="ba">
+    <div class="section-header"><h2>Ba Duan Jin</h2><p>八段锦 — Eight flowing movements that work the entire body.</p></div>
+    <div class="principles"><h3>Why It Works</h3>
+        <div class="principle"><h4>Meridian Activation</h4><p>Each movement targets specific energy channels. When Qi flows freely, organ function improves.</p></div>
+        <div class="principle"><h4>Gentle Stretching</h4><p>Stretching combined with breath increases flexibility without strain.</p></div>
+        <div class="principle"><h4>Mind-Body Connection</h4><p>Focusing attention creates presence and reduces stress.</p></div>
+    </div>
+    <div class="movement open"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">1</span><h3>Two Hands Hold Up the Heavens</h3><span>双手托天理三焦</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Interlace fingers, palms up. Push overhead, turn palms to sky. Rise onto toes. Hold 3-5 breaths. Lower.</p>
+        <p><strong>Why:</strong> Full-body stretch opens the Triple Burner (energy distribution). Elongates spine, stretches front body.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale as arms rise. Hold at top. Exhale lowering.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Arms straight not locked</li><li>Stretch through fingers</li><li>Relax shoulders</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Shrug shoulders</li><li>Hold breath</li><li>Lean back</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">2</span><h3>Draw Bow to Shoot the Eagle</h3><span>左右开弓似射雕</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Horse stance. Left hand hook, right hand pulls bowstring. Twist torso. Switch sides.</p>
+        <p><strong>Why:</strong> Opens chest, engages core, stretches side body. Lung meridian runs through arms.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale prepare, exhale "shoot".</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Knees over toes</li><li>Twist from waist</li><li>Full extension</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Lock knees</li><li>Use only arms</li><li>Skip sides</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">3</span><h3>Separate Heaven and Earth</h3><span>调理脾胃须单举</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Feet shoulder-width. Left palm up, right palm down. Lift left, press right. Switch.</p>
+        <p><strong>Why:</strong> Stimulates spleen/stomach meridians. Up-down motion pumps energy through digestion.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale lift, exhale press.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Torso upright</li><li>Smooth transitions</li><li>Coordinate breath</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Tilt torso</li><li>Rush</li><li>Tense shoulders</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">4</span><h3>Wise Owl Gazes Backwards</h3><span>五劳七伤往后瞧</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Hands on thighs. Turn head to look behind. Hips stay forward. Alternate.</p>
+        <p><strong>Why:</strong> Stretches neck/upper spine. Releases tension from sitting. Stimulates Governing Vessel.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale one side, exhale other.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Relax shoulders</li><li>Turn fully</li><li>Hips stable</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Twist only neck</li><li>Move shoulders</li><li>Look down</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">5</span><h3>Sway Head and Shake the Tail</h3><span>摇头摆尾去心火</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Low horse stance. Hands on knees. Sway torso in circles, head follows.</p>
+        <p><strong>Why:</strong> Removes "heart fire" (stress, agitation). Massages organs, creates spine movement.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Natural breathing.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Knees bent</li><li>Move from waist</li><li>Circle smoothly</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Head alone</li><li>Straighten legs</li><li>Rush</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">6</span><h3>Hold Feet to Strengthen Kidneys</h3><span>双手攀足固肾腰</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Bend from hips (not waist). Reach toward feet. Hold toes/ankles. Breathe into lower back.</p>
+        <p><strong>Why:</strong> Targets kidney meridian and lower back. Compresses/releases spine. Kidneys store essence (Jing).</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale rise, hold, exhale bend.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Bend from hips</li><li>Knees slightly bent</li><li>Feel stretch</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Bounce/force</li><li>Lock knees</li><li>Round back</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">7</span><h3>Clench Fists and Glare Fiercely</h3><span>攥拳怒目增气力</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Horse stance. Clench fists. Squint eyes slightly. Thrust fists forward alternately with sharp exhales.</p>
+        <p><strong>Why:</strong> Most active—builds Yang energy. Sharp exhalations increase heart rate. Builds willpower.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Exhale sharply each thrust. Inhale between.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Sharp exhalations</li><li>Engage core</li><li>Focus eyes</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Clench too tight</li><li>Hold breath</li><li>Straighten arms</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">8</span><h3>Bouncing on the Toes</h3><span>背后七颠百病消</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Rise onto balls of feet, drop heels sharply. Repeat 7 times. Feel vibration through body.</p>
+        <p><strong>Why:</strong> Vibrations shake loose tension. Settling movement—helps integrate practice.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale rise, exhale drop.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Rise balls first</li><li>Knees absorb</li><li>Feel vibration</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Slam heels</li><li>Straighten legs</li><li>Hold for balance</li></ul></div></div>
+    </div></div></div>
+</section>
+<section id="yi">
+    <div class="section-header"><h2>Yi Jin Jing</h2><p>易筋经 — Tendon Changing Classic. Stronger practice for tendons and internal power.</p></div>
+    <div class="principles"><h3>Why It Works</h3>
+        <div class="principle"><h4>Tendon Transformation</h4><p>"Yi Jin" means changing tendons—not muscles. Targets connective tissues that store elastic energy.</p></div>
+        <div class="principle"><h4>Internal Power</h4><p>Builds power from within. Generates force from the core, transmits through body.</p></div>
+        <div class="principle"><h4>Postural Foundation</h4><p>Static poses develop structural strength. Body learns to hold itself correctly.</p></div>
+    </div>
+    <div class="movement open"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">1</span><h3>Raise Hands to Heaven</h3><span>提手上式</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Feet together. Arms overhead, interlace fingers. Stretch up, rise onto toes. Hold 3-5 breaths.</p>
+        <p><strong>Why:</strong> Full-body stretch. Elongates spine, opens all meridians.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale rise, hold, exhale lower.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Stretch fully</li><li>Arms straight</li><li>Point fingers</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Lock elbows</li><li>Shrug</li><li>Hold breath</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">2</span><h3>Wei Tuo Presents Staff</h3><span>韦陀献杵</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Feet shoulder-width. Press palms together at heart. Press down gently while maintaining arm shape.</p>
+        <p><strong>Why:</strong> Develops internal connection. Core engages while arms hold structure. Builds foundation.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Natural breathing.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Relax shoulders</li><li>Engage core gently</li><li>Maintain shape</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Strain neck</li><li>Push too hard</li><li>Tense body</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">3</span><h3>Pluck Stars, Change Dipper</h3><span>摘星换斗</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Right hand forms hook down, left hand raises overhead. Look at raised hand. Switch.</p>
+        <p><strong>Why:</strong> Spinal rotation with hip stability. Opens shoulder, stretches side body.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale raise, hold, exhale switch.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Hips stable</li><li>Turn fully</li><li>Extend through fingers</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Lean sideways</li><li>Twist only neck</li><li>Rush</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">4</span><h3>Pull Nine Oxen by Tail</h3><span>倒拽九牛尾</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Horse stance. Right arm forward, left back. Pull in ox tail motion. Switch.</p>
+        <p><strong>Why:</strong> Builds arm/back strength. Pulling engages lats and core. Develops rotational power.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Exhale pull, inhale return.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Twist from waist</li><li>Use back muscles</li><li>Full extension</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Arms only</li><li>Square hips</li><li>Small movements</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">5</span><h3>Nine Ghosts Pull Sabre</h3><span>九鬼拔马刀</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Right hand behind back, left over head. Curve spine like a bow. Look at hand. Switch.</p>
+        <p><strong>Why:</strong> Extreme back flexibility. Opens shoulder, stretches spine. Strengthens back muscles.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale arch, exhale hold.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Curve like bow</li><li>Hips forward</li><li>Feel stretch</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Flatten back</li><li>Rotate hips</li><li>Force</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">6</span><h3>Three Plates Fall to Ground</h3><span>三盘落地</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Feet wide. Hands in front, palms down. Squat, press hands down. Rise, hands up. Repeat.</p>
+        <p><strong>Why:</strong> Leg strength and grounding. The pressing down activates the lower body.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Exhale down, inhale up.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Knees over toes</li><li>Press down firmly</li><li>Full range</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Knees past toes</li><li>Go too low</li><li>Rush</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">7</span><h3>Green Dragon Explores Claw</h3><span>青龙探爪</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Horse stance. Left hand claw at chest. Right hand pushes through. Twist. Switch.</p>
+        <p><strong>Why:</strong> Internal organ massage. Twisting motion stimulates digestion and organ function.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Exhale push, inhale return.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Twist from waist</li><li>Full extension</li><li>Focus internally</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Use only arm</li><li>Keep hips square</li><li>Surface only</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">8</span><h3>Tiger Pounces on Food</h3><span>卧虎扑食</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Lunge forward. Hands on ground/bed. Dip chest forward. Switch legs.</p>
+        <p><strong>Why:</strong> Full body stretch. Reaches deep muscles. Opens hip flexors.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale lunge, exhale hold.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>From shoulders</li><li>Full extension</li><li>Switch smoothly</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Strain lower back</li><li>Knees past toes</li><li>Hold too long</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">9</span><h3>Bow Head, Beat Drum</h3><span>打躬击鼓</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Feet wide. Hands behind ears. Bend forward, tap head. Rise, tap again. Repeat.</p>
+        <p><strong>Why:</strong> Spine flexibility. Rounding the spine releases vertebral tension.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Exhale bend, inhale rise.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Round spine</li><li>Full bend</li><li>Relax neck</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Straight spine</li><li>Strain neck</li><li>Hold breath</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">10</span><h3>Shake Head, Sway Tail</h3><span>摇头摆尾</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Feet wide, squat. Hands on knees. Rotate hips in circles. Head follows.</p>
+        <p><strong>Why:</strong> Hip mobility, digestion. Circular motion stimulates abdominal organs.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Natural breathing.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Move from hips</li><li>Full circles</li><li>Relax upper body</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Head leads</li><li>Square hips</li><li>Tense shoulders</li></ul></div></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">11</span><h3>Drop Tail, Raise Head</h3><span>掉尾摇头</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Feet together. Hands overhead, interlaced. Bend side to side. Let arms drop.</p>
+        <p><strong>Why:</strong> Lateral stretch. Balances left/right sides of body.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale one side, exhale other.</p></div>
+        <div class="dd"><div class="do"><h4>✓ Do</h4><ul><li>Full bend</li><li>Relax shoulders</li><li>Arms heavy</li></ul></div><div class="dont"><h4>✗ Don't</h4><ul><li>Hold breath</li><li>One side only</li><li>Tense up</li></ul></div></div>
+    </div></div></div>
+</section>
+<section id="luo">
+    <div class="section-header"><h2>Luohan Qigong</h2><p>罗汉功 — Arhat Practice. Gentle movements for calming the mind.</p></div>
+    <div class="principles"><h3>Why It Works</h3>
+        <div class="principle"><h4>Calming the Mind</h4><p>Gentle movements create a meditative state. Reduces stress and anxiety.</p></div>
+        <div class="principle"><h4>Nervous System Balance</h4><p>Activates parasympathetic nervous system. Slows heart rate, reduces cortisol.</p></div>
+        <div class="principle"><h4>Internal Awareness</h4><p>Focuses on feeling rather than form. Develops interoception.</p></div>
+    </div>
+    <div class="movement open"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">1</span><h3>Preparation</h3><span>预备式</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Stand naturally. Arms at sides. Relax shoulders. Breathe naturally. Center attention.</p>
+        <p><strong>Why:</strong> Arrives in the present moment. Releases tension before practice begins.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Natural breathing into dantian.</p></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">2</span><h3>Embrace Tai Chi</h3><span>怀抱太极</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Arms in front, palms facing. Move in circles, like holding a big ball. Clockwise then counter.</p>
+        <p><strong>Why:</strong> Balances energy. Creates sense of center and grounding.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale one direction, exhale other.</p></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">3</span><h3>Push Window, Moon</h3><span>推窗望月</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Right hand pushes right, left hand at chest. Turn head to look. Switch sides.</p>
+        <p><strong>Why:</strong> Lateral extension. Opens side body, stimulates rib cage.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Inhale prepare, exhale push.</p></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">4</span><h3>Phoenix Dances</h3><span>凤凰起舞</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Arms wave like wings. Side to side sway. Flowing, gentle motion.</p>
+        <p><strong>Why:</strong> Releases tension in shoulders and back. Creates relaxation response.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Match breath to sway rhythm.</p></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">5</span><h3>Follow Wind, Pull Flag</h3><span>顺风扯旗</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> One arm up, one down. Twist torso. Like pulling a rope.</p>
+        <p><strong>Why:</strong> Spinal twist with gentle force. Massages internal organs.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Exhale twist.</p></div>
+    </div></div></div>
+    <div class="movement"><div class="movement-header" onclick="this.parentElement.classList.toggle('open')"><div class="movement-title"><span class="movement-num">6</span><h3>Quiet Cultivation</h3><span>静养</span></div><span class="movement-toggle">+</span></div><div class="movement-content"><div class="movement-body">
+        <p><strong>What:</strong> Stand still. Hands on dantian. Breathe gently. Meditate.</p>
+        <p><strong>Why:</strong> Integration of practice. Allows benefits to settle. Calms the mind.</p>
+        <div class="breathing"><h4>Breathing</h4><p>Deep, slow, into dantian.</p></div>
+    </div></div></div>
+</section>
+<footer><p>愿您健康长寿 — May you have health and longevity</p></footer>
+</main>
 </body>
 </html>
